@@ -2,7 +2,14 @@ import type { Adapter, AdapterUser, AdapterSession } from "@auth/core/adapters";
 
 import NodeCache from "node-cache";
 
-export default function NodeCacheAdapter(
+/**
+ * @description Wraps an adapter with caching.
+ * @author cobeo2004 & hanhle090
+ * @param dbAdapter - The adapter to wrap with caching.
+ * @param options - Optional configuration options.
+ * @returns An adapter that wraps the provided adapter with caching.
+ */
+export default function AuthNodeCacheAdapter(
   dbAdapter: Adapter,
   options?: { ttl?: number }
 ): Adapter {
